@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Titanic App</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="page__header">
+        <div class="container">
+          <h1>Let's make a table</h1>
+        </div>
+      </header>
+      <main class="page__main">
+        <div class="container">
+          <div id="app">
+            <table class="table">
+              <tr>
+                <th class="table__head">Имя</th>
+                <th class="table__head">Пол</th>
+                <th class="table__head">Возраст</th>
+                <th class="table__head">Класс</th>
+                <th class="table__head">Выжил</th>
+              </tr>
+              <tr>
+                <td class="table__row">Василий Иванович Шпонь</td>
+                <td class="table__row">Мужской</td>
+                <td class="table__row">28</td>
+                <td class="table__row">1</td>
+                <td class="table__row">да</td>
+              </tr>
+              <tr>
+                <td class="table__row">Мария Антоновна Игорь</td>
+                <td class="table__row">Женский</td>
+                <td class="table__row">21</td>
+                <td class="table__row">1</td>
+                <td class="table__row">нет</td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+      </main>
+      <footer class="page__footer"></footer>
+    </div>
+    <script type="module">
+      import Main from '/src/js/main.js';
+      
+      let main = new Main();
+      main.render()
+      .then(() => console.log('Страница готова!'));
+
+    </script>
+  </body>
+</html>

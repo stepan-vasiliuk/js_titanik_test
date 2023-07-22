@@ -1,0 +1,41 @@
+@import "normalize.css";
+@import "./page/page.css";
+@import "./container/container.css";
+@import "./table/table.css";
+
+
+:root {
+  /* width: 100vh;
+  height: 100vh; */
+  /* background-color: blueviolet; */
+
+  --white: #ffffff;
+  --black: #212429;
+  --pink: #f784ad;
+  --purple: #7048e8;
+  --purple-2: #5028c6;
+  --blue: #374fc7;
+  --blue-1: #4263eb;
+  --blue-2: #2342c0;
+  --red: #f03d3e;
+  --grey-1: #f8f9fa;
+  --grey-2: #e5e5e5;
+  --grey-3: #dde2e5;
+  --grey-4: #acb5bd;
+  --grey-5: #495057;
+  --some: #ece6e0;
+  --brown-1: #656665;
+  --orange-1: #f5d7bf;
+  
+}
+
+body {
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.test {
+  width: 100px;
+  height: 100px;
+  background-color: var(--grey-2);
+}

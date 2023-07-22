@@ -1,0 +1,27 @@
+.page {
+    background-color: var(--grey-1);
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header" "main" "footer";
+}
+
+/* .page_inner {
+  background-color: var(--grey-1);
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
+} */
+
+.page__header {
+  grid-area: header;
+}
+
+.page__main {
+  grid-area: main;
+}
+
+page__footer {
+  grid-area: footer;
+}

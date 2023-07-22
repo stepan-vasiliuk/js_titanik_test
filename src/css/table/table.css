@@ -1,0 +1,19 @@
+.table {
+  text-align: left;
+  border-collapse: separate;
+  border-spacing: 5px;
+  background: var(--some);
+  color: var(--brown-1);
+  border: 16px solid var(--some);
+  border-radius: 10px;
+}
+
+.table__head {
+    font-size: 18px;
+    padding: 10px;
+}
+
+.table__row {
+    background: var(--orange-1);
+    padding: 10px;
+}
