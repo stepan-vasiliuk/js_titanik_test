@@ -2,6 +2,7 @@
 @import "./page/page.css";
 @import "./container/container.css";
 @import "./table/table.css";
+@import "./control/filters.css";
 
 
 :root {

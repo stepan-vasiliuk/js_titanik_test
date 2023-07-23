@@ -9,48 +9,65 @@
     <div class="page">
       <header class="page__header">
         <div class="container">
-          <h1>Let's make a table</h1>
+          <h1>Titanic Passangers List</h1>
         </div>
       </header>
       <main class="page__main">
         <div class="container">
           <div id="app">
-            <table class="table">
-              <tr>
-                <th class="table__head">Имя</th>
-                <th class="table__head">Пол</th>
-                <th class="table__head">Возраст</th>
-                <th class="table__head">Класс</th>
-                <th class="table__head">Выжил</th>
-              </tr>
-              <tr>
-                <td class="table__row">Василий Иванович Шпонь</td>
-                <td class="table__row">Мужской</td>
-                <td class="table__row">28</td>
-                <td class="table__row">1</td>
-                <td class="table__row">да</td>
-              </tr>
-              <tr>
-                <td class="table__row">Мария Антоновна Игорь</td>
-                <td class="table__row">Женский</td>
-                <td class="table__row">21</td>
-                <td class="table__row">1</td>
-                <td class="table__row">нет</td>
-              </tr>
-
-            </table>
+            <div class="control_panel">
+              <ul class="filters">
+                <li class="filters__item">
+                  <span class="filters__item_description">Name</span>
+                  <input type="text" class="filters__item_input" id="name-input"></input>
+                </li>
+                <li class="filters__item">
+                  <span class="filters__item_description">Age</span>
+                  <input type="number" class="filters__item_input" id="age-input"></input>
+                </li>
+                <li class="filters__item">
+                  <span class="filters__item_description">Gender</span>
+                  <div>
+                  <input type="radio" class="filters__item_radio" value="male" id="male" name="gender">
+                  <label for="male">Male</label><br>
+                  <input type="radio" class="filters__item_radio" value="female" id="female" name="gender">
+                  <label for="female">Female</label><br>
+                  <input type="radio" class="filters__item_radio" value="not-selected" id="not-selected" name="gender" checked>
+                  <label for="not-selected">Not selected</label>
+                  </div>
+                </li>
+                <li class="filters__item">
+                  <span class="filters__item_description">Survived</span>
+                  <span class="filters__item_radio"></span>
+                </li>
+              </ul>
+              
+            </div>
+              <div class="table" id="table">
+                <section class="table__content table__content-static">
+                  <div class="table__content__cell">Имя</div>
+                  <div class="table__content__cell">Пол</div>
+                  <div class="table__content__cell">Возраст</div>
+                  <div class="table__content__cell">Класс</div>
+                  <div class="table__content__cell">Выжил</div>
+                </section>
+                <section
+                  class="table__content table__content-dynamic"
+                  id="dynamic-content"
+                ></section>
+                
+              </div>
+            </div>
           </div>
         </div>
       </main>
       <footer class="page__footer"></footer>
     </div>
     <script type="module">
-      import Main from '/src/js/main.js';
-      
-      let main = new Main();
-      main.render()
-      .then(() => console.log('Страница готова!'));
+      import Main from "/src/js/main.js";
 
+      let main = new Main();
+      main.render().then(() => console.log("Страница готова!"));
     </script>
   </body>
 </html>
