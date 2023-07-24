@@ -6,9 +6,6 @@
 
 
 :root {
-  /* width: 100vh;
-  height: 100vh; */
-  /* background-color: blueviolet; */
 
   --white: #ffffff;
   --black: #212429;
@@ -33,10 +30,4 @@
 body {
   height: 100vh;
   font-family: "Roboto", sans-serif;
-}
-
-.test {
-  width: 100px;
-  height: 100px;
-  background-color: var(--grey-2);
 }

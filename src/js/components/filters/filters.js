@@ -25,7 +25,7 @@ export default class Filters {
         this.#html = document.createElement('div');
         this.#html.classList.add('control_panel');
 
-        // Teмплейт фильтров
+        // Filters template
         this.#html.innerHTML = `
             <ul class="filters">
                 <li class="filters__item">
@@ -104,7 +104,7 @@ export default class Filters {
 
     #filterByGender(gender, values)
     {
-        return values.filter((item) => item.gender.includes(gender));
+        return values.filter((item) => item.gender === gender);
     }
 
     #filterBySurvived(rawState, values)

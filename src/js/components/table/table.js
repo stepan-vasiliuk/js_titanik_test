@@ -28,7 +28,7 @@ export default class Table {
         this.#header.classList.add('table__header');
 
         this.#body = document.createElement('tbody');
-        this.#body.classList.add('table__header');
+        this.#body.classList.add('table__body');
 
         this.#table.append(this.#header);
         this.#table.append(this.#body);
