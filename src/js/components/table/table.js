@@ -1,106 +1,65 @@
-import createElement from "../../../assets/lib/create-element.js"
 import TableRow from "../tableRow/table-row.js";
 
+
 export default class Table {
+    #table;
+    #header;
+    #body;
 
-    constructor(passengers) {
-        this.passengers = passengers;
-        this.filters = {};
-        this.#render();
+    #rows = [];
+
+    constructor(parent, headers) {
+        this.#render(parent, headers);
     }
 
-    #render() {
-        this.elem = document.querySelector('#dynamic-content');
-        console.log("elem (table.js)", this.elem);
-        // this.#initElements();
-        this.#mainTemplate(this.passengers);
-    }
+    #render(parent, headers) {
+        // Table elements creating
+        this.#table = document.createElement('table');
+        this.#table.classList.add('table');
 
-    // #mainTemplate() {
-    //     return `
-    //     <section class="table__content table__content-dynamic" id="dynamic-content"></section>
-    //     `
-    // }
-
-    // #initElements() {
-    //     this.tableElement = this.elem.querySelector('.table__content-dynamic');
-
-    // }
-
-    #mainTemplate(passengers) {
-        this.elem.innerHTML = '';
-        let html = '';
-        passengers.forEach(passenger => {
-            html += (this.#rowTemplate(passenger));
-            // let tableRow = new TableRow(passenger);
-            // this.elem.append(tableRow.elem);
-            // this.tableElement.append(tableRow.elem);
-        });
-
-        this.elem.innerHTML = html;
-
-    }
-
-    #rowTemplate(passenger) {
-        return `
-        <div class="table__content__cell">${passenger.name}</div>
-        <div class="table__content__cell">${passenger.gender}</div>
-        <div class="table__content__cell">${Math.floor(passenger.age)}</div>
-        <div class="table__content__cell">${passenger.class}</div>
-        <div class="table__content__cell">${passenger.survived ? 'Survived' : 'Not Survived'}</div>
-        `
-    }
-
-    updateFilters(filterName, filterValue) {
-        this.#initFilters();
-
-        this.filters[filterName] = filterValue;
-        console.log(this.filters);
-
-        let filteredPassengers = this.passengers;
-
-        for(const [key, value] of Object.entries(this.filters)){
-            if(key === 'name' && value.length) {
-                filteredPassengers = this.#filterByName(value, filteredPassengers);
-            }
-            if(key === 'age' && value.length) {
-                filteredPassengers = this.#filterByAge(value, filteredPassengers);
-            }
+        if(!parent || typeof parent.append !== "function") {
+            console.log('NOT CORRECT');
         }
 
-        // if (key === 'name') {
-        //     filteredPassengers = this.#filterByName(value, filteredPassengers);
-        // }
-        // if (key === 'age') {
-        //     filteredPassengers = this.#filterByAge(value, filteredPassengers);
-        // }
+        parent.append(this.#table);
 
-        this.#mainTemplate(filteredPassengers);
+        // Creating header and body
+        this.#header = document.createElement('thead');
+        this.#header.classList.add('table__header');
 
+        this.#body = document.createElement('tbody');
+        this.#body.classList.add('table__header');
+
+        this.#table.append(this.#header);
+        this.#table.append(this.#body);
+
+        // Header' filling with content
+        this.#headersRender(headers);
     }
 
-    #filterByName(name, filteredPassengers) {
-        return filteredPassengers.filter((item) => {
-            return item.name.includes(name);
-        })
-        // this.#mainTemplate(filtered);
+
+    #headersRender(headers) {
+        new TableRow(this.#header, headers);
     }
 
-    #filterByAge(age, filteredPassengers) {
-        return filteredPassengers.filter((item) => {
-            return Math.floor(item.age) == age;
-        })
-        // this.#mainTemplate(filtered);
+    // add rows to table
+    add(rows) {
+        this.#rows.push(
+            ...rows.map((row) => new TableRow(this.#body, row))
+        );
     }
 
-    #initFilters() {
-        if(Object.keys(this.filters).length === 0){
-            this.filters = {
-                name: '',
-                age: '',
-                gender: '',
-                survived: undefined,
-            }
-        }
+    // cleaning table
+    clear() {
+        this.#rows.forEach((row) => row.delete());
     }
+
+    // Delete table
+    delete() {
+        this.#table.delete();
+        this.#table = null;
+        this.#body = null;
+        this.#header = null;
+    }
+
 }

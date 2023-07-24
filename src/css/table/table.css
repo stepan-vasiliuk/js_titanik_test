@@ -1,5 +1,5 @@
 .table {
-  display: flex;
+  /* display: flex;
   width: 100%;
   flex-direction: column;
   gap: 15px;
@@ -9,7 +9,7 @@
   background: var(--some);
   color: var(--brown-1);
   border: 16px solid var(--some);
-  border-radius: 10px; */
+  border-radius: 10px; */ 
 }
 
 .table__content {
@@ -52,3 +52,14 @@
     background: var(--orange-1);
     padding: 10px;
 } */
+
+
+.table {
+  border-collapse: collapse;
+}
+
+.table__cell {
+  border: 1px solid lightgray;
+  padding: 8px 16px;
+  background: white;
+}
